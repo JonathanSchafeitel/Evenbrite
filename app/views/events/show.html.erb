@@ -1,0 +1,22 @@
+<div style="text-align: center;">
+
+<h1>Titre : <%= @events.title %></h1>
+
+<h3>Commence le : <%= @events.start_date %></h3>
+
+<p>Il dure : <%= @events.duration %> jours</p>
+<p>Le prix : <%= @events.price %> USD</p>
+<p>Il se trouve : <%= @events.location %> USD</p>
+
+<p >Et voici son contenu :</p>
+<p ><%= @events.description %></p>
+
+<p>
+<a href="<%= events_path %>" class="btn btn-primary">Revenir à l'index</a>
+<% if user_signed_in? %>
+<a href="<%= events_path %>" class="btn btn-success">S'inscire</a>
+<% else %>
+<p> Il faut un compte pour créer un évenement, connecte toi :  <%= button_to "Connection", new_user_session_path, method: :get, class: "btn btn-warning" %></p>
+<% end %>
+</p>
+</div>
